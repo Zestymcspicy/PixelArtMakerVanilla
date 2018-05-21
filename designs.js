@@ -1,17 +1,19 @@
-const grid = document.createElement("tbody");
 const table = document.querySelector("#pixelCanvas");
 const drawColor = document.querySelector("#colorPicker");
 const submitButton = document.querySelector("#submitButton");
+const grid = document.createElement("tbody");
+table.appendChild(grid);
 
 
-//prevent default on submit, TODO: erase previous grid, perhaps in makeGrid()?
+//prevent default on submit
 submitButton.addEventListener('click', function (e) {
   e.preventDefault();
-  table.appendChild(grid);
   makeGrid();
 });
 
+//creates the grid, and erases the previous grid
 function makeGrid() {
+  grid.innerHTML = "";
   const gridHeight = document.querySelector("#inputHeight").value;
   const gridWidth = document.querySelector("#inputWidth").value;
     for (let i = 1; i<=gridHeight; i++){
@@ -26,7 +28,6 @@ function makeGrid() {
 
 //TODO functioning draw function
 grid.addEventListener('click', function(event){
-  if (event.target.nodeName === 'TD') {
-      cell.style.backgroundColor = drawColor;
-  }
+  let spotToColor = document.querySelector("td")
+  spotToColor.style.backgroundColor = drawColor;
 });
