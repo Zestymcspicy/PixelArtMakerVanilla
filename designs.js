@@ -28,6 +28,8 @@ function makeGrid() {
 
 //TODO functioning draw function
 grid.addEventListener('click', function(event){
-  let spotToColor = document.querySelector("td")
-  spotToColor.style.backgroundColor = drawColor;
+  let drawColor = document.querySelector("#colorPicker").value;
+  if (event.target.nodeName = 'TD') {
+    event.target.style.backgroundColor = drawColor;
+  }
 });
